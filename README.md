@@ -1,6 +1,6 @@
-# Valemobi - Desafio Back-End
+# Desafio Back-End
 
-Esse é o nosso desafio para os candidatos à vaga de back-end na [Valemobi](https://www.linkedin.com/company/valemobi/mycompany).
+Esse é o nosso desafio para os candidatos à vaga de back-end na [TradeMap](https://www.linkedin.com/company/trademaphub).
 
 Mesmo que você não esteja em nosso processo seletivo, você pode iniciá-lo resolvendo esse desafio.
 
