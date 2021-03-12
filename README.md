@@ -6,42 +6,29 @@ Mesmo que você não esteja em nosso processo seletivo, você pode iniciá-lo re
 
 Atualmente, todo o nosso backend está escrito em Java/Kotlin, utilizando Spring como framework.
 
-# O Desafio
+# Instruções Inicialização - Projeto
 
-Precisamos de uma API que sirva o Back-end de um blog. Essa API precisa ser capaz de:
+1. Clone o repositório git@github.com:fogeid/desafio-backend.git
+2. Ou faça o download do arquivo ZIP do projeto em https://github.com/fogeid/desafio-backend
+3. Importar o projeto em sua IDE de preferência (lembre-se, projeto baseado em Spring & Maven)
+4. Buildar o projeto e executá-lo.
 
-- Criar um Post
-- Editar um Post
-- Deletar um Post
-- Listar os Posts de maneira paginada, permitindo filtro por data.
-- Obter informações de um Post por ID.
+# Rotas
 
-A entidade `Post`, deve ter os seguintes campos:
-
-- id -> Identificador do Post.
-- title -> Título do Post.
-- description -> Descrição do Post.
-- body -> Corpo do Post.
-- created_at -> Data de criação do Post.
-- updated_at -> Data de atualização do Post.
-
-Você pode utilizar qualquer banco, desde que ele seja [SQL](http://www.sqlcourse.com/intro.html).
-
-## Requisitos
-
-- Todas as respostas precisam ser retornadas no formato [JSON](https://www.json.org/json-en.html).
-- Crie um `README.md` com as informações de como usar sua aplicação. (como executar, quais são as rotas, etc)
-- Publique sua aplicação em algum servidor. (Heroku, AWS, Azure, Digital Ocean)
-
-## Diferenciais
-
-- Utilize migrations para a criação dos Schemas da sua aplicação. (Flyway, Liquibase)
-- [Dockerize](https://www.docker.com/) sua aplicação.
-- Crie testes unitários para a sua aplicação.
-- Utilize os princípios SOLID em sua aplicação.
-
-## Como entregar o teste
-
-1. Faça um fork desse repositório.
-2. Resolva o desafio da melhor maneira que você puder.
-3. Envie um pull-request para análise do resultado.
+- GET UNITY - /posts/id
+- GET PAGE - /posts?page=0
+- GET ALL - /posts
+- POST - /posts
+{
+"title": "Primeiro título",
+"description": "Primeiro post do blog",
+"body": "Hellow world!",
+"created_at": "2019-06-20T19:53:07Z"
+}
+- UPDATE - /posts/id
+{
+"title": "Update título",
+"description": "Update post do blog",
+"body": "Hellow world com update!"
+}
+- DELETE - /posts/id
