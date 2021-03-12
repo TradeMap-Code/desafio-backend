@@ -13,7 +13,7 @@ Atualmente, todo o nosso backend está escrito em Java/Kotlin, utilizando Spring
 3. Importar o projeto em sua IDE de preferência (lembre-se, projeto baseado em Spring & Maven)
 4. Buildar o projeto e executá-lo.
 
-# Rotas
+# Endpoints
 
 - GET UNITY - /posts/id
 - GET PAGE - /posts?page=0
