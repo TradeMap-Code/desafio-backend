@@ -33,7 +33,7 @@ public class Post implements Serializable{
 	private String createdAt;
 
 	@NotNull
-	private String updateAt;
+	private String updatedAt;
 	
 	
 	public long getId() {
@@ -66,10 +66,10 @@ public class Post implements Serializable{
 	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 	}
-	public String getUpdateAt() {
-		return updateAt;
+	public String getUpdatedAt() {
+		return updatedAt;
 	}
-	public void setUpdateAt(String updateAt) {
-		this.updateAt = updateAt;
+	public void setUpdatedAt(String updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 }
