@@ -9,6 +9,7 @@ Criação de uma API com o Banco de Dados H2 database e Spring Boot
 Com a utilização do H2 terá que executar a primeira opção conforme segue abaixo:
 
 1- Criar um Post:
+```
   http://localhost:8080/api/posts
    {
         "id": 0,
@@ -16,9 +17,11 @@ Com a utilização do H2 terá que executar a primeira opção conforme segue ab
         "description": "Teste",
         "body": "Teste"
     }
+```
 
 
 2- Editar um Post:
+```
 http://localhost:8080/api/posts - Id no Json
   {
         "id": 1,
@@ -26,13 +29,20 @@ http://localhost:8080/api/posts - Id no Json
         "description": "teste2",
         "body": "teste"
     }
+```
 
 
 3- Deletar um Post:
+```
 http://localhost:8080/api/posts/1
+```
 
 4- Listar os Posts de maneira paginada, permitindo filtro por data:
+```
 http://localhost:8080/api/posts?createdAt={só colocar a data aqui}
+```
 
 5- Obter informações de um Post por ID:
+```
 http://localhost:8080/api/posts/1
+```
