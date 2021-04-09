@@ -22,9 +22,9 @@ Com a utilização do H2 terá que executar a primeira opção conforme segue ab
 http://localhost:8080/api/posts - Id no Json
   {
         "id": 1,
-        "titulo": "Amanha é dia de alegria",
-        "description": "Apenas um post sobre felicidade",
-        "body": "Finge que tem uma mesagem"
+        "titulo": teste2",
+        "description": "teste2",
+        "body": "teste"
     }
 
 
