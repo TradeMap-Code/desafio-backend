@@ -10,3 +10,8 @@ spring:
     console:
       enabled: true
       path: /h2-console
+
+
+server:
+  error:
+    include-message: always

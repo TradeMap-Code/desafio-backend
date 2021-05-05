@@ -2,10 +2,12 @@ package com.TradeMap.desafiobackend.model;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import org.apache.tomcat.jni.Local;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class BlogRequestDTO {
@@ -67,6 +69,7 @@ public class BlogRequestDTO {
                 ", updated_at=" + updated_at +
                 '}';
     }
+
 
 
 }

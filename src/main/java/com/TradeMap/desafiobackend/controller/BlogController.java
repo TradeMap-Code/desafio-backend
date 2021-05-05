@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.swing.text.html.Option;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -39,7 +39,7 @@ public class BlogController {
 
         blogRepository.save(blog);
 
-        return new BlogResponseDTO("Post was successfully created.");
+        return new BlogResponseDTO("Post was successfully published.");
     }
 
     @GetMapping("/blog")
@@ -51,23 +51,35 @@ public class BlogController {
     @GetMapping("/blog/{id}")
     public Blog findBlog(@PathVariable("id") UUID id){
 
-        return blogRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return blogRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The Post was not found :("));
     }
 
     @DeleteMapping("/blog/{id}")
-    public void deleteBlog(@PathVariable("id") UUID id) {
+    public BlogResponseDTO deleteBlog(@PathVariable("id") UUID id) {
 
         blogRepository.delete(findBlog(id));
+
+        return new BlogResponseDTO("Post was sucessfully deleted");
     }
 
-    @PatchMapping("/blog/{id}")
-    public Blog patchBlog(@PathVariable("id") UUID id, @RequestBody Blog blog) {
+    @PatchMapping("/blo/{id}")
+    public Blog incrementalUpdateBlog(@PathVariable("id") UUID id, @RequestBody Blog blog) {
         Blog foundBlog = findBlog(id);
         foundBlog.setTitle(Optional.ofNullable(blog.getTitle()).orElse(foundBlog.getTitle()));
         foundBlog.setDescription(Optional.ofNullable(blog.getDescription()).orElse(foundBlog.getDescription()));
         foundBlog.setBody(Optional.ofNullable(blog.getBody()).orElse(foundBlog.getBody()));
         foundBlog.setUpdated_at(Optional.ofNullable(blog.getUpdated_at()).orElse(foundBlog.getUpdated_at()));
 
+        return blogRepository.save(foundBlog);
+    }
+
+    @PutMapping("/blog/{id}")
+    public Blog fullUpdateBlog(@PathVariable("id") UUID id, @RequestBody Blog blog) {
+        Blog foundBlog = findBlog(id);
+        foundBlog.setTitle(blog.getTitle());
+        foundBlog.setDescription(blog.getDescription());
+        foundBlog.setBody(blog.getBody());
+        foundBlog.setUpdated_at(LocalDate.now());
         return blogRepository.save(foundBlog);
     }
 

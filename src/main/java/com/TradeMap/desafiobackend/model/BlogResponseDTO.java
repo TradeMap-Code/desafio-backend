@@ -2,13 +2,13 @@ package com.TradeMap.desafiobackend.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class BlogResponseDTO {
 
     private String message;
-    private LocalDate date;
-    private UUID id;
+    private LocalDateTime date;
 
     public BlogResponseDTO(String message) {
         this.message = message;
@@ -22,21 +22,22 @@ public class BlogResponseDTO {
         this.message = message;
     }
 
-    public LocalDateTime getDate() {
-        return LocalDateTime.now();
+    public String getDate() {
+        return dateTimePattern(LocalDateTime.now());
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
-    public UUID getId() {
-        return id;
+
+    public static String dateTimePattern(LocalDateTime received) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss");
+        String inThePattern = formatter.format(received);
+
+        return inThePattern;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
 
 }
