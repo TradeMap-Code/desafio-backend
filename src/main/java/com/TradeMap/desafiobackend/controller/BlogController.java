@@ -43,44 +43,44 @@ public class BlogController {
     }
 
     @GetMapping("/blog")
-    public List<Blog> listEstablishments() {
+    public List<Blog> listPostBlogs() {
         return (List<Blog>) blogRepository.findAll();
 
     }
 
     @GetMapping("/blog/{id}")
-    public Blog findBlog(@PathVariable("id") UUID id){
+    public Blog findPostBlog(@PathVariable("id") UUID id){
 
         return blogRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The Post was not found :("));
     }
 
     @DeleteMapping("/blog/{id}")
-    public BlogResponseDTO deleteBlog(@PathVariable("id") UUID id) {
+    public BlogResponseDTO deletePostBlog(@PathVariable("id") UUID id) {
 
-        blogRepository.delete(findBlog(id));
+        blogRepository.delete(findPostBlog(id));
 
         return new BlogResponseDTO("Post was sucessfully deleted");
     }
 
-    @PatchMapping("/blo/{id}")
-    public Blog incrementalUpdateBlog(@PathVariable("id") UUID id, @RequestBody Blog blog) {
-        Blog foundBlog = findBlog(id);
-        foundBlog.setTitle(Optional.ofNullable(blog.getTitle()).orElse(foundBlog.getTitle()));
-        foundBlog.setDescription(Optional.ofNullable(blog.getDescription()).orElse(foundBlog.getDescription()));
-        foundBlog.setBody(Optional.ofNullable(blog.getBody()).orElse(foundBlog.getBody()));
-        foundBlog.setUpdated_at(Optional.ofNullable(blog.getUpdated_at()).orElse(foundBlog.getUpdated_at()));
+    @PatchMapping("/blog/{id}")
+    public Blog incrementalUpdatePostBlog(@PathVariable("id") UUID id, @RequestBody Blog blog) {
+        Blog foundPostBlog = findPostBlog(id);
+        foundPostBlog.setTitle(Optional.ofNullable(blog.getTitle()).orElse(foundPostBlog.getTitle()));
+        foundPostBlog.setDescription(Optional.ofNullable(blog.getDescription()).orElse(foundPostBlog.getDescription()));
+        foundPostBlog.setBody(Optional.ofNullable(blog.getBody()).orElse(foundPostBlog.getBody()));
+        foundPostBlog.setUpdated_at(Optional.ofNullable(blog.getUpdated_at()).orElse(foundPostBlog.getUpdated_at()));
 
-        return blogRepository.save(foundBlog);
+        return blogRepository.save(foundPostBlog);
     }
 
     @PutMapping("/blog/{id}")
-    public Blog fullUpdateBlog(@PathVariable("id") UUID id, @RequestBody Blog blog) {
-        Blog foundBlog = findBlog(id);
-        foundBlog.setTitle(blog.getTitle());
-        foundBlog.setDescription(blog.getDescription());
-        foundBlog.setBody(blog.getBody());
-        foundBlog.setUpdated_at(LocalDate.now());
-        return blogRepository.save(foundBlog);
+    public Blog fullUpdatePostBlog(@PathVariable("id") UUID id, @RequestBody Blog blog) {
+        Blog foundPostBlog = findPostBlog(id);
+        foundPostBlog.setTitle(blog.getTitle());
+        foundPostBlog.setDescription(blog.getDescription());
+        foundPostBlog.setBody(blog.getBody());
+        foundPostBlog.setUpdated_at(LocalDate.now());
+        return blogRepository.save(foundPostBlog);
     }
 
 

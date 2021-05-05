@@ -1,9 +1,8 @@
 package com.TradeMap.desafiobackend.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.UUID;
+
 
 public class BlogResponseDTO {
 
