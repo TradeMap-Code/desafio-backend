@@ -1,16 +1,24 @@
-package com.TradeMap.desafiobackend.model;
+package com.TradeMap.desafiobackend.dto;
 
+import com.TradeMap.desafiobackend.controller.BlogController;
+
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 
 public class BlogResponseDTO {
 
     private String message;
     private LocalDateTime date;
+    private String id;
 
-    public BlogResponseDTO(String message) {
+    BlogController blogController = new BlogController();
+
+    public BlogResponseDTO(String message, String id) {
         this.message = message;
+        this.id = id;
     }
 
     public String getMessage() {
@@ -29,6 +37,13 @@ public class BlogResponseDTO {
         this.date = date;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public static String dateTimePattern(LocalDateTime received) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss");

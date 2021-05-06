@@ -1,8 +1,7 @@
-package com.TradeMap.desafiobackend.model;
+package com.TradeMap.desafiobackend.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import org.apache.tomcat.jni.Local;
 
 import java.time.LocalDate;
 
@@ -12,9 +11,6 @@ public class BlogRequestDTO {
     private String title;
     private String description;
     private String body;
-    private LocalDate created_at;
-    private LocalDate updated_at;
-
 
     public String getTitle() {
         return title;
@@ -36,25 +32,7 @@ public class BlogRequestDTO {
         return body;
     }
 
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public LocalDate getCreated_at() {
-        return LocalDate.now();
-    }
-
-    public void setCreated_at(LocalDate created_at) {
-        this.created_at = created_at;
-    }
-
-    public LocalDate getUpdated_at() {
-        return LocalDate.now();
-    }
-
-    public void setUpdated_at(LocalDate updated_at) {
-        this.updated_at = updated_at;
-    }
+    public void setBody(String body) { this.body = body; }
 
     @Override
     public String toString() {
@@ -62,8 +40,6 @@ public class BlogRequestDTO {
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", body='" + body + '\'' +
-                ", created_at=" + created_at +
-                ", updated_at=" + updated_at +
                 '}';
     }
 

@@ -1,8 +1,27 @@
 version: '3'
 
+#services:
+#  oracle-db:
+#    image: oracleinanutshell/oracle-xe-11g:latest
+#    ports:
+#      - 1521:1521
+#      - 5500:5500
+
 services:
+#  core:
+#    build: .
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - desafio-backend-compose-network
   oracle-db:
     image: oracleinanutshell/oracle-xe-11g:latest
     ports:
       - 1521:1521
       - 5500:5500
+    networks:
+      - desafio-backend-compose-network
+
+networks:
+  desafio-backend-compose-network:
+    driver: bridge

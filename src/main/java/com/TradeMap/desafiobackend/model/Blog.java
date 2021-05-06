@@ -2,7 +2,6 @@ package com.TradeMap.desafiobackend.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 @Table
@@ -10,8 +9,7 @@ public class Blog {
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(generator = "uuid")
-    private UUID id;
+    private String id;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -23,16 +21,16 @@ public class Blog {
     private String body;
 
     @Column(name = "created_at", nullable = false)
-    private LocalDate created_at;
+    private LocalDate createdAt;
 
     @Column(name = "updated_at", nullable = false)
-    private LocalDate updated_at;
+    private LocalDate updatedAt;
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -60,19 +58,21 @@ public class Blog {
         this.body = body;
     }
 
-    public LocalDate getCreated_at() {
-        return created_at;
+    public LocalDate getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(LocalDate created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public LocalDate getUpdated_at() {
-        return updated_at;
+    public LocalDate getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(LocalDate updated_at) {
-        this.updated_at = updated_at;
+    public void setUpdatedAt(LocalDate updatedAt) {
+        this.updatedAt = updatedAt;
     }
+
+
 }
