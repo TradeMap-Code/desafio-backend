@@ -2,17 +2,10 @@ package com.TradeMap.desafiobackend.controller;
 
 import com.TradeMap.desafiobackend.dto.BlogRequestDTO;
 import com.TradeMap.desafiobackend.dto.BlogResponseDTO;
-
-import com.TradeMap.desafiobackend.repository.BlogRepository;
-import com.TradeMap.desafiobackend.service.BlogService;
 import org.junit.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.junit.jupiter.api.Assertions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 //@RunWith(SpringRunner.class)
@@ -39,6 +32,6 @@ public class BlogControllerTest {
     @Test
     public void teste() {
         Assertions.assertEquals("a", "a");
-
     }
+
 }
