@@ -41,6 +41,7 @@ public class BlogService {
         return blogRepository.findAll(PageRequest.of(page, 5));
     }
 
+
     public Blog getById(String id){
         return blogRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The Blog was not found :("));
     }

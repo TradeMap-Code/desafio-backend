@@ -44,7 +44,7 @@ public class BlogController {
 
 
     @PutMapping("/blog/{id}")
-    public Blog UpdateBlog(@PathVariable("id") String id, @RequestBody Blog blog) {
+    public Blog updateBlog(@PathVariable("id") String id, @RequestBody Blog blog) {
 
         return blogService.update(id, blog);
     }
